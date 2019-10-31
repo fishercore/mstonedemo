@@ -5,7 +5,7 @@ server:
 #    driver-class-name: com.mysql.jdbc.Driver
 #    url: jdbc:mysql://?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
 #    username:
-#    password: 
+#    password:
 logging:
   level:
     root: debug

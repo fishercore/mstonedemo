@@ -2,7 +2,7 @@ package com.mstone.springdemo.db.service.impl;
 
 import com.mstone.springdemo.db.entity.City;
 import com.mstone.springdemo.db.repository.CityRepository;
-import com.mstone.springdemo.db.service.CityService;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,47 +12,42 @@ import java.util.List;
 /**
  * @description:
  * @author: fisher
- * @create: 2019-10-30 15:12
+ * @create: 2019-10-31 16:14
  */
 @Component
-public class CityServiceImpl implements CityService {
+public class CityTempService {
 
     @Autowired
     private CityRepository cityRepository;
 
-    @Override
     public void save(City city) {
         cityRepository.save(city);
     }
 
-    @Override
-    public void createCity(List<City> cityList) {
+    @Transactional(rollbackFor = Exception.class)
+    public void createCity(List<City> cityList) throws Exception {
         batchSave(cityList);
     }
 
     @Transactional(rollbackFor = Exception.class)
-    @Override
-    public void batchSave(List<City> cityList) {
+    public void batchSave(List<City> cityList) throws Exception {
+
+
 
         cityRepository.saveAll(cityList);
 
-        throw new RuntimeException("111");
+        if(1 == 1) {
+            throw new Exception("1111");
+        }
     }
 
-    @Override
     public List<City> findAll() {
         return (List<City>) cityRepository.findAll();
     }
 
-    @Override
     public List<City> findByName(String name) {
         List<City> city = cityRepository.findByName(name);
         return city;
-    }
-
-    @Override
-    public void deleteAll() {
-        cityRepository.deleteAll();
     }
 
 }
