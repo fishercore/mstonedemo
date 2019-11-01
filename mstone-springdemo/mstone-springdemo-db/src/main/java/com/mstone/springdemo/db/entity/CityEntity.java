@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class City {
+public class CityEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

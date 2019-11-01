@@ -1,6 +1,6 @@
 package com.mstone.springdemo.db.service.impl;
 
-import com.mstone.springdemo.db.entity.City;
+import com.mstone.springdemo.db.entity.CityEntity;
 import com.mstone.springdemo.db.repository.CityRepository;
 import com.mstone.springdemo.db.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +21,18 @@ public class CityServiceImpl implements CityService {
     private CityRepository cityRepository;
 
     @Override
-    public void save(City city) {
+    public void save(CityEntity city) {
         cityRepository.save(city);
     }
 
     @Override
-    public void createCity(List<City> cityList) {
+    public void createCity(List<CityEntity> cityList) {
         batchSave(cityList);
     }
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public void batchSave(List<City> cityList) {
+    public void batchSave(List<CityEntity> cityList) {
 
         cityRepository.saveAll(cityList);
 
@@ -40,13 +40,13 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public List<City> findAll() {
-        return (List<City>) cityRepository.findAll();
+    public List<CityEntity> findAll() {
+        return (List<CityEntity>) cityRepository.findAll();
     }
 
     @Override
-    public List<City> findByName(String name) {
-        List<City> city = cityRepository.findByName(name);
+    public List<CityEntity> findByName(String name) {
+        List<CityEntity> city = cityRepository.findByName(name);
         return city;
     }
 

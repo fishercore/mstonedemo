@@ -8,9 +8,16 @@ server:
 #    password:
 logging:
   level:
-    root: debug
+    root: info
+    org:
+      springframework:
+        transaction:
+          interceptor: TRACE
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+spring:
+  aop:
+    proxy-target-class: false

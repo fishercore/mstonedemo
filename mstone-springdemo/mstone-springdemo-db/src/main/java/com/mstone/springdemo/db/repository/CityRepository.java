@@ -1,6 +1,6 @@
 package com.mstone.springdemo.db.repository;
 
-import com.mstone.springdemo.db.entity.City;
+import com.mstone.springdemo.db.entity.CityEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.List;
  * @author: fisher
  * @create: 2019-10-30 15:08
  */
-public interface CityRepository extends CrudRepository<City, Long> {
+public interface CityRepository extends CrudRepository<CityEntity, Long> {
 
 
-    List<City> findByName(String name);
+    List<CityEntity> findByName(String name);
 
-    City findById(long id);
+    CityEntity findById(long id);
 }

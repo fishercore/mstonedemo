@@ -1,6 +1,6 @@
 package com.mstone.springdemo.db.service;
 
-import com.mstone.springdemo.db.entity.City;
+import com.mstone.springdemo.db.entity.CityEntity;
 import com.mstone.springdemo.db.service.impl.CityTempService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -26,11 +26,11 @@ class CityServiceTest {
 
     @Test
     public void test01() {
-        List<City> cityList = new ArrayList<>();
-        cityList.add(new City(1L, "jane", "1"));
-        cityList.add(new City(2L, "jone", "1"));
-        cityList.add(new City(3L, "jay", "1"));
-        cityList.add(new City(4L, "j", "1"));
+        List<CityEntity> cityList = new ArrayList<>();
+        cityList.add(new CityEntity(1L, "jane", "1"));
+        cityList.add(new CityEntity(2L, "jone", "1"));
+        cityList.add(new CityEntity(3L, "jay", "1"));
+        cityList.add(new CityEntity(4L, "j", "1"));
 
         try {
 //            cityService.createCity(cityList);
@@ -47,20 +47,20 @@ class CityServiceTest {
     public void test02() {
 
 
-        log.info("cityService ->", AopUtils.isAopProxy(cityService));
-        log.info("cityService ->", AopUtils.isCglibProxy(cityService));
+        log.info("cityService ->{}", AopUtils.isAopProxy(cityService));
+        log.info("cityService ->{}", AopUtils.isCglibProxy(cityService));
 
-        log.info("cityTempService ->", AopUtils.isAopProxy(cityService));
-        log.info("cityTempService ->", AopUtils.isCglibProxy(cityService));
+        log.info("cityTempService ->{}", AopUtils.isAopProxy(cityTempService));
+        log.info("cityTempService ->{}", AopUtils.isCglibProxy(cityTempService));
 
 
         cityService.deleteAll();
 
-        List<City> cityList = new ArrayList<>();
-        cityList.add(new City(1L, "jane", "1"));
-        cityList.add(new City(2L, "jone", "1"));
-        cityList.add(new City(3L, "jay", "1"));
-        cityList.add(new City(4L, "j", "1"));
+        List<CityEntity> cityList = new ArrayList<>();
+        cityList.add(new CityEntity(1L, "jane", "1"));
+        cityList.add(new CityEntity(2L, "jone", "1"));
+        cityList.add(new CityEntity(3L, "jay", "1"));
+        cityList.add(new CityEntity(4L, "j", "1"));
 
         try {
             cityTempService.batchSave(cityList);

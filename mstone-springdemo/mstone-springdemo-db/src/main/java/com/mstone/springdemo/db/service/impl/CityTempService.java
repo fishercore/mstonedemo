@@ -1,8 +1,7 @@
 package com.mstone.springdemo.db.service.impl;
 
-import com.mstone.springdemo.db.entity.City;
+import com.mstone.springdemo.db.entity.CityEntity;
 import com.mstone.springdemo.db.repository.CityRepository;
-import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,17 +19,17 @@ public class CityTempService {
     @Autowired
     private CityRepository cityRepository;
 
-    public void save(City city) {
+    public void save(CityEntity city) {
         cityRepository.save(city);
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void createCity(List<City> cityList) throws Exception {
+    public void createCity(List<CityEntity> cityList) throws Exception {
         batchSave(cityList);
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void batchSave(List<City> cityList) throws Exception {
+    public void batchSave(List<CityEntity> cityList) throws Exception {
 
 
 
@@ -41,12 +40,12 @@ public class CityTempService {
         }
     }
 
-    public List<City> findAll() {
-        return (List<City>) cityRepository.findAll();
+    public List<CityEntity> findAll() {
+        return (List<CityEntity>) cityRepository.findAll();
     }
 
-    public List<City> findByName(String name) {
-        List<City> city = cityRepository.findByName(name);
+    public List<CityEntity> findByName(String name) {
+        List<CityEntity> city = cityRepository.findByName(name);
         return city;
     }
 

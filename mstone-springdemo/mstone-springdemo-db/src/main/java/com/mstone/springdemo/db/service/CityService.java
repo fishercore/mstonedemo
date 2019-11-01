@@ -1,6 +1,6 @@
 package com.mstone.springdemo.db.service;
 
-import com.mstone.springdemo.db.entity.City;
+import com.mstone.springdemo.db.entity.CityEntity;
 
 import java.util.List;
 
@@ -11,16 +11,15 @@ import java.util.List;
  */
 public interface CityService {
 
+    List<CityEntity> findAll();
 
-    List<City> findAll();
+    List<CityEntity> findByName(String name);
 
-    List<City> findByName(String name);
+    void save(CityEntity city);
 
-    void save(City city);
+    void batchSave(List<CityEntity> cityList);
 
-    void batchSave(List<City> cityList);
-
-    void createCity(List<City> cityList);
+    void createCity(List<CityEntity> cityList);
 
     void deleteAll();
 
