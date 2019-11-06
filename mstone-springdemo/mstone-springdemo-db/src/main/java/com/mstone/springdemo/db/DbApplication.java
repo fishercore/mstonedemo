@@ -2,6 +2,7 @@ package com.mstone.springdemo.db;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @description:
@@ -9,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @create: 2019-10-30 11:20
  */
 @SpringBootApplication
+
+@EnableAspectJAutoProxy(exposeProxy = true)
 public class DbApplication {
 
     public static void main(String[] args) {

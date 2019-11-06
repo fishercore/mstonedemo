@@ -8,7 +8,7 @@ server:
 #    password:
 logging:
   level:
-    root: info
+    root: debug
     org:
       springframework:
         transaction:
@@ -18,6 +18,7 @@ management:
     web:
       exposure:
         include: "*"
+
 spring:
   aop:
     proxy-target-class: false

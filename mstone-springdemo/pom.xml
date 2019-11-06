@@ -15,6 +15,7 @@
         <module>mstone-springdemo-db</module>
         <module>mstone-springdemo-base</module>
         <module>mstone-springdemo-common</module>
+        <module>mstone-springdemo-autoconfig</module>
     </modules>
 
 

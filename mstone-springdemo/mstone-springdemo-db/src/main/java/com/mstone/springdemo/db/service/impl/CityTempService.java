@@ -31,8 +31,6 @@ public class CityTempService {
     @Transactional(rollbackFor = Exception.class)
     public void batchSave(List<CityEntity> cityList) throws Exception {
 
-
-
         cityRepository.saveAll(cityList);
 
         if(1 == 1) {

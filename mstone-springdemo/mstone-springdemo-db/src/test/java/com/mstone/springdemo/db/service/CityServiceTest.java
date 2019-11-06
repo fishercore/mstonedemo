@@ -25,21 +25,34 @@ class CityServiceTest {
     private CityTempService cityTempService;
 
     @Test
-    public void test01() {
+    public void testTransaction() {
         List<CityEntity> cityList = new ArrayList<>();
         cityList.add(new CityEntity(1L, "jane", "1"));
         cityList.add(new CityEntity(2L, "jone", "1"));
         cityList.add(new CityEntity(3L, "jay", "1"));
         cityList.add(new CityEntity(4L, "j", "1"));
 
+
+        log.info("currentThread -----> {}", Thread.currentThread().getName());
+        log.info("currentClass -----> {}", cityService.getClass().getClass());
+
         try {
-//            cityService.createCity(cityList);
-            cityService.batchSave(cityList);
+            cityService.createCity(cityList);
         } catch (Exception e) {e.printStackTrace();}
 
         List resultList = cityService.findAll();
-        System.out.println(resultList);
+        log.info("with interface --> {}", resultList.toString());
 
+        cityService.deleteAll();
+
+        try {
+            cityTempService.createCity(cityList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        resultList = cityService.findAll();
+        log.info("with out interface --> {}", resultList.toString());
     }
 
 

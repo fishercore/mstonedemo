@@ -1,0 +1,6 @@
+greeting:
+  enabled: false
+
+logging:
+  level:
+    root: debug
