@@ -11,6 +11,7 @@
     <modules>
         <module>mstone-springdemo</module>
         <module>mstone-springcloud-demo</module>
+        <module>mstone-config</module>
     </modules>
 
     <properties>
